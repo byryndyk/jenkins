@@ -14,11 +14,13 @@ pipeline {
         stage("First step") {
             steps {
                 sh 'ssh root@slave \'hostname\''
+                sh 'scp /etc/hosts root@slave:/etc/'
             }
         }
         stage("Second step") {
             steps {
                 sh 'ssh root@slave \'uptime\''
+                sh 'cat /etc/hosts' 
             }
         }
     }
