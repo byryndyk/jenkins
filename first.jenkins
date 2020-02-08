@@ -26,9 +26,9 @@ pipeline {
                 sh 'cat /etc/hosts' 
             }
         }
-        stage("Therd step"){
-            step {
-              sh 'yum update -y'
+        stage("Therd step") {
+            steps {
+                sh 'yum update -y'
             }
         }
     }
