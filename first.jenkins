@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Therd step") {
             steps {
-                sh 'sudo yum update -y'
+                sh 'ls -a'
             }
         }
     }
