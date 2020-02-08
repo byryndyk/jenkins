@@ -16,6 +16,9 @@ pipeline {
     stages {
         stage("First step") {
             steps {
+               sh 'yum update -y'
+            }
+            steps {
                 sh 'ssh root@slave \'hostname\''
                 sh 'scp /etc/hosts root@slave:/etc/'
             }
