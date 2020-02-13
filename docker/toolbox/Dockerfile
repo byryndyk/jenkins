@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM alpine
 RUN apk add --no-cache curl wget busybox-extras net-cat-openbsd py-pip \
     pip install awscli
 RUN apk --purge -v del py-pip
