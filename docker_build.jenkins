@@ -17,7 +17,7 @@ pipeline {
          echo "==========================start build image==========================="
          dir('docker/toolbox') {
   //       dir('docker') {   
-           sh 'docker build -t toolbox:latest .'
+           sh 'docker build -t abyryndyk/toolbox:latest .'
          }
        }
      }     
