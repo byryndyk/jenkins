@@ -12,15 +12,17 @@ pipeline {
      timestamps()
    }
    stages {
-      stage("Test stage in multi branch") {
-         steps {
-           echo "============ TEST IN MULTIBRANCH============"
-           echo "============ SECCONDARY TRY ================"
-         }
-      }
+      
    }
    
    stages {
+     stage("Test stage in multi branch") {
+         steps {
+           echo "============ TEST IN MULTIBRANCH============"
+           echo "============ SECCONDARY TRY ================"
+           echo "============ ONE MORE TRY =================="
+         }
+     }
      stage("login to dockerhub") {
        steps {
           echo "==============Login in dockerhub====================================="
