@@ -11,16 +11,15 @@ pipeline {
      buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
      timestamps()
    }
+
    stages {
-      stage("Test stage in multi branch") {
+     stage("Test stage in multi branch") {
          steps {
            echo "============ TEST IN MULTIBRANCH============"
            echo "============ SECCONDARY TRY ================"
+           echo "============ THERD TRY ================"
          }
-      }
-   }
-   
-   stages {
+     }
      stage("login to dockerhub") {
        steps {
           echo "==============Login in dockerhub====================================="
