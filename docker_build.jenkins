@@ -11,10 +11,7 @@ pipeline {
      buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
      timestamps()
    }
-   stages {
-      
-   }
-   
+
    stages {
      stage("Test stage in multi branch") {
          steps {
