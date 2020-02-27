@@ -12,6 +12,16 @@ pipeline {
      timestamps()
    }
    stages {
+     stage("login to dockerhub") {
+       steps {
+          echo "==============Login in dockerhub====================================="
+          withCredentials([usernamePassword(credentialsID: 'dockerhub_abyryndyk', usernameVariable: 'USERNAME', passwordVariable: "PASSWORD")]) {
+          sh """
+          docker login -u $USERNAME -p $PASSWORD
+          """
+         }
+       }
+     }
      stage("create docker image") {
        steps {
          echo "==========================start build image==========================="
@@ -20,6 +30,14 @@ pipeline {
            sh 'docker build -t abyryndyk/toolbox:latest .'
          }
        }
-     }     
+     } 
+     stage("push to dockerhub"){
+        steps{
+           echo "=====================PUSH TO DOCKERHUB================================="
+           sh"""
+           docker push abyryndyk/toolbox:latest
+           """
+        }    
+     }
    }
 }
